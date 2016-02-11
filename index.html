@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Welcome to JaySea.com</title>
+<meta charset="utf-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Your description">
+<meta name="keywords" content="Your keywords">
+<meta name="author" content="Your name">
+<meta name = "format-detection" content = "telephone=no" />
+
+<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+
+<!--******************************--->
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+
+<!--CSS-->
+<link rel="stylesheet" href="css/bootstrap.css" >
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/camera.css">
+<link rel="stylesheet" href="fonts/font-awesome.css">
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/camera.js"></script>
+<script>
+    $(document).ready(function(){
+        jQuery('.camera_wrap').camera();
+    });
+</script>
+<style type="text/css">
+.auto-style1 {
+	color: #000000;
+}
+.auto-style2 {
+	color: #010101;
+	font-size: x-large;
+}
+.auto-style3 {
+	font-size: larger;
+}
+.auto-style4 {
+	font-size: x-large;
+	color: #25D842;
+}
+.auto-style5 {
+	font-size: 19px;
+	color: #030303;
+}
+.auto-style6 {
+	font-size: medium;
+}
+</style>
+<!--[if (gt IE 9)|!(IE)]><!-->
+      <script src="js/jquery.mobile.customized.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+    <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+  <![endif]-->
+  <!--[if lt IE 9]>
+<script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!--******************************--->
+<dom-module id="paypal-form">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .buy-button {
+        background:url('payment-button.png') no-repeat;
+        cursor:pointer;
+        width: 198px;
+        height: 71px;
+        border: none;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+      
+
+    </style>
+    
+        <div>
+            <div>Name on your account:</div>
+            <input required type="text" value="{{name::input}}" />
+        </div>
+        <div>
+            <div>Your account number: </div>
+            <input required type="number" value="{{accountNumber::input}}" />
+        </div>
+        <div>
+            <div>Amount:</div>
+            <input required type="number" value="{{amount::input}}" />
+        </div>
+        
+        
+        <div>
+            
+            <div class="buy-button" on-click="buyItem">
+                <form id="buyItemForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_ext-enter">
+                    <input type="hidden" name="redirect_cmd" value="_xclick">
+                    <input type="hidden" name="item_name" value="PayPal Test: {{name}} :: {{accountNumber}}">
+                    <input type="hidden" name="business" value="Jaysea@jaysea.com">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="amount" value="{{amount}}">
+                    <input type="hidden" name="first_name" value="{{name}}">
+                    <input type="hidden" name="custom" value="{{accountNumber}}">
+                    <input type="hidden" name="return" value="http://jaysea.com">
+                </form>
+            <div>
+            
+            
+        </div>
+
+ 
+
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'paypal-form',
+
+      properties: {
+        foo: {
+          type: String,
+          value: 'form-mini',
+          notify: true,
+          observer: 'responseChanged'
+        }
+      },
+        buyItem: function () {
+            this.querySelector('#buyItemForm').submit();
+        }
+    });
+  })();
+  </script>
+</dom-module>
+<!--header-->
+<header style="left: 0; right: 0; top: 0; height: 18px"> 
+    <div class="container"> 
+        <h1 class="navbar-brand navbar-brand_"><a href="http://agehacks.com/jaysea-preview2.htm">
+		<img src="img/jay-sea-logo-large.png" alt=""><span>company name</span></a></h1>
+        <nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation" style="text-align: right">
+            <ul class="nav sf-menu clearfix">
+                <li class="active"><a href="http://agehacks.com/jaysea-preview2.htm"><strong>Home</strong></a></li>
+                <li class="sub-menu"><a href="http://jaysea.com/?page_id=9"><strong>About Frontenac</strong></a>
+                            <li><a href="http://jaysea.com/?page_id=14"><strong>Contact Us</strong></a></li>
+                <li><a href="http://jaysea.com/?page_id=12"><strong>Drink 8 Glasses</strong></a></li>
+                <li><a href="http://jaysea.com/?page_id=16"><strong>Make A Payment</strong></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="slider">
+    <div class="camera_wrap">
+            <div data-src="img/picture3.jpg"><div class="camera-caption fadeIn"><p class="title">Free Delivery!: (315)-343-3700</p><p class="description">Clean, pure, fresh water, delivered in BPA-free plastic bottles!</p></div></div>
+        <div data-src="img/picture1.jpg"><div class="camera-caption fadeIn"><p class="title">The <span>best water</span> right at your office or home</p><p class="description">Convenient, professional and friendly delivery.</p></div></div>
+        <div data-src="img/picture2.jpg"><div class="camera-caption fadeIn"><p class="title">Clean, healthy, locally sourced spring water</p><p class="description">Bottled directly at the source!</p></div></div>
+    </div>
+</div>
+<div class="global">
+    <div class="center-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 box">
+                    <div class="box1">
+                        <p class="title">Our Special</p>
+                        <div class="cont">
+                            <p>Introductory Offer</p>
+<p>NEW Customers:</p>
+<p>Buy 2 Bottles, Get 2 FREE!</p>
+                        </div>
+                        <div class="more">
+                            <a href="http://jaysea.com" class="btn-default btn1">Read more <span class="fa fa-arrow-circle-o-right"></span></a>
+                        </div>
+                        <em></em>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 box">
+                    <div class="box2">
+                        <p class="title">Our Local Springs</p>
+                        <div class="cont">
+                            <p>Frontenac Crystal Springs is located in the Town of Clayton along the St. Lawrence River in the 1000 Islands Region of NY State... </p>
+                        </div>
+                        <div class="more">
+                            <a href="http://jaysea.com/?page_id=9" class="btn-default btn1">Read more <span class="fa fa-arrow-circle-o-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 box">
+                    <div class="box3">
+                        <p class="title">Drink 8 Glasses</p>
+                        <div class="cont">
+                            <p>Tips for getting your 8 glasses of water daily…</p>
+                        </div>
+                        <div class="more">
+                            <a href="http://jaysea.com/?page_id=12" class="btn-default btn1">Read more <span class="fa fa-arrow-circle-o-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="about-box">
+    <div class="container"> 
+        <div class="row" style="//height: 398px; //width: 1241px;">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="left: 0px; top: 0px">
+                <p class="title">
+    
+        	<span class="auto-style5" style="font: bold 35px 'Roboto Slab'; color: #259DD8; margin-bottom: 15px;">Make a Payment</span><br>
+			<img alt="" height="170" src="http://agehacks.com/secure-paypal-logo.jpg" width="288"><br><br>
+				<span class="auto-style4" style="color: rgb(55, 55, 55); font-size: 21.8971px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 21.8971px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">
+				Please enter your information below and use the pay now button. </span></p>
+			
+                <paypal-form></paypal-form>
+                
+                
+               </div>
+           </div>
+    </div>
+</div>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-xs-12" style="margin: 0 auto; text-align: center">
+            <br><br>
+				<img alt="" height="839" src="paypal-choice.jpg" width="883">
+			<br><br>
+        </div>
+    </div>
+</div>
+</div>
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="navbar-brand navbar-brand_"><a href="http://agehacks.com/jaysea-preview2.htm">
+				<span>Jay Sea</span></a><img alt="spring-water-delivery-oswego-ny-image" height="187" src="logo-shadow.png" width="401"></h1>
+            </div>
+            <div class="col-lg-6">
+                <ul class="foo_menu">
+                    <li class="active" style="text-align: right"><a href="http://agehacks.com/jaysea-preview2.htm">
+					<strong>Home</strong></a></li>
+                    <li class="text-right"><a href="http://jaysea.com/?page_id=9">
+					<strong>About Frontenac</strong></a><span class="auto-style6"><strong>
+					</strong></span>
+                    <li class="text-right"><a href="http://jaysea.com/?page_id=14">
+					<strong>Contact Us</strong></a></li>
+                     <li class="text-right"><a href="http://jaysea.com/?page_id=12">
+					 <strong>Drink 8 Glasses</strong></a></li>
+                     <li class="text-right"><a href="http://jaysea.com/?page_id=16">
+					 <strong>Make A Payment</strong></a></li>                </ul>
+                               <ul class="follow_icon">
+                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/tm-scripts.js"></script>
+</body>
+</html>
