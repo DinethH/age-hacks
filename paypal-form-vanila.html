@@ -1,0 +1,72 @@
+     <style>
+      :host {
+        display: block;
+      }
+      .buy-button {
+        background:url('payment-button.png') no-repeat;
+        cursor:pointer;
+        width: 198px;
+        height: 71px;
+        border: none;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+      
+
+    </style>
+    
+    
+    <div>
+            <div>Name on your account:</div>
+            <input id="name" required type="text" value="" />
+        </div>
+        <div>
+            <div>Your account number: </div>
+            <input id="accountNumber" required type="number" value="" />
+        </div>
+        <div>
+            <div>Amount:</div>
+            <input id="amount" required type="number" value="" />
+        </div>
+        
+        
+        <div>
+            
+            <div>
+                <form id="buyItemForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_ext-enter">
+                    <input type="hidden" name="redirect_cmd" value="_xclick">
+                    <input id="item_name" type="hidden" name="item_name" value="">
+                    <input type="hidden" name="business" value="Jaysea@jaysea.com">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input id="amountP" type="hidden" name="amount" value="">
+                    <input id="nameP" type="hidden" name="first_name" value="">
+                    <input id="accountNumberP" type="hidden" name="custom" value="">
+                    <input type="hidden" name="return" value="http://jaysea.com">
+                </form>
+            <div>
+     </div>
+     
+     <input onclick="submitForm();" class="buy-button" type="button">
+     
+     
+     
+     <script type="text/javascript">
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var accountNumber = document.getElementById("accountNumber").value;
+            var amount = document.getElementById("amount").value;
+            
+            document.getElementById("item_name").value = "Name: " + name + " | Account Number: " + accountNumber + " | Amount: " + amount;
+            document.getElementById("amountP").value = amount;
+            document.getElementById("nameP").value = name;
+            document.getElementById("accountNumberP").value = accountNumber;
+            
+            if (name.length > 0 && accountNumber.length > 0 && amount.length > 0) {
+                document.getElementById("buyItemForm").submit();
+            } else {
+                alert("All fields are required!");
+            }
+              
+        }
+     </script>
