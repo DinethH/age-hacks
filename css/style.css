@@ -2073,28 +2073,3 @@ footer em {
 /*Core variables and mixins*/
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
-
-
-@media (max-width: 767px) and (orientation: portrait) {
-	.cont-mobile {
-		margin-top: 20px;
-	}
-	.nav-bar-mobile {
-		margin-top: 130px !important;
-	}
-	.camera-caption {
-		padding-top: 90px !important;
-	}
-}
-
-@media (max-width: 767px) and (orientation: landscape) {
-	.cont-mobile {
-		margin-top: 20px;
-	}
-	.nav-bar-mobile {
-		margin-top: 60px !important;
-	}
-	.camera-caption {
-		padding-top: 90px !important;
-	}
-}
